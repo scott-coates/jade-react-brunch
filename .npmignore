@@ -1,0 +1,13 @@
+.lock-wscript
+.svn/
+.hg/
+.git/
+.idea/
+CVS/
+*~
+*.bak
+.DS_Store
+npm-debug.log
+src/
+test/
+CHANGELOG.md

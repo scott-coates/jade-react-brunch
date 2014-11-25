@@ -1,0 +1,12 @@
+*~
+*.bak
+.DS_Store
+npm-debug.log
+node_modules/
+lib/*
+
+.project
+.settings
+.idea/workspace.xml
+.idea/dictionaries/
+.idea/misc.xml

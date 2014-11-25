@@ -1,0 +1,32 @@
+{
+  "name": "jade-react-brunch",
+  "version": "1.0.0",
+  "description": "Adds React.js for jade templates support to brunch.",
+  "author": "Scott Coates",
+  "license": "MIT",
+  "homepage": "https://github.com/scoarescoare/jade-react-brunch",
+  "keywords": [
+    "react",
+    "brunch",
+    "plugin",
+    "jade"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:scoarescoare/jade-react-brunch.git"
+  },
+  "main": "./lib/index.js",
+  "scripts": {
+    "prepublish": "make clean && make",
+    "test": "node_modules/.bin/mocha --require test/common.js"
+  },
+  "dependencies": {
+    "anymatch": "^1.0.0",
+    "jade-react-compiler": "0.2.2"
+  },
+  "devDependencies": {
+    "mocha": "1.11.0",
+    "chai": "1.7.0",
+    "coffee-script": "~1.6.3"
+  }
+}
