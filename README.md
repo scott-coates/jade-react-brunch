@@ -1,7 +1,86 @@
 ## jade-react-brunch
-Adds [React](http://facebook.github.io/react) support to [brunch](http://brunch.io)
-by automatically compiling `*.jreact` files.
 
+Adds [React](http://facebook.github.io/react) support to [brunch](http://brunch.io)
+by automatically compiling `*.jreact` files using [jade-react-compiler](https://github.com/mikepb/jade-react-compiler).
+
+### Installation
+
+Install the plugin via npm with `npm install --save jade-react-brunch`.
+
+Or, do manual install:
+
+* Add `"jade-react-brunch": "x.y.z"` to `package.json` of your brunch app.
+  Pick a plugin version that corresponds to your minor (y) brunch version.
+* If you want to use git version of plugin, add
+`"jade-react-brunch": "git+ssh://git@github.com:scoarescoare/jade-react-brunch.git"`.
+
+### Usage
+
+###### Input
+
+```
+- const React = require("bower_components/react/react") //- required if React is not global
+nav#main-nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      a.navbar-brand(href='../')
+        | PriceBuddy
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+    #navbar-main.navbar-collapse.collapse
+      ul.nav.navbar-nav.navbar-right
+        li
+          a(href="/about") About
+        li
+          a(href="/listings") Listings
+        li
+          a(href="/cities") Cities
+        li
+          a(href="/contacts") Contact
+```
+##### Output
+```
+var React = require("bower_components/react/react");
+module.exports = function() {
+    return React.DOM.nav({
+        id: "main-nav",
+        className: "navbar navbar-default navbar-fixed-top"
+    }, React.DOM.div({
+        className: "container"
+    }, React.DOM.div({
+        className: "navbar-header"
+    }, React.DOM.a({
+        href: "../",
+        className: "navbar-brand"
+    }, "PriceBuddy"), React.DOM.button({
+        type: "button",
+        "data-toggle": '"collapse"',
+        "data-target": '"#navbar-main"',
+        className: "navbar-toggle"
+    }, React.DOM.span({
+        className: "icon-bar"
+    }), React.DOM.span({
+        className: "icon-bar"
+    }), React.DOM.span({
+        className: "icon-bar"
+    }))), React.DOM.div({
+        id: "navbar-main",
+        className: "navbar-collapse collapse"
+    }, React.DOM.ul({
+        className: "nav navbar-nav navbar-right"
+    }, React.DOM.li(null, React.DOM.a({
+        href: "/about"
+    }, "About")), React.DOM.li(null, React.DOM.a({
+        href: "/listings"
+    }, "Listings")), React.DOM.li(null, React.DOM.a({
+        href: "/cities"
+    }, "Cities")), React.DOM.li(null, React.DOM.a({
+        href: "/contacts"
+    }, "Contact"))))))
+};
+```
 ### Optional
 
 You can configure jade-react-brunch to skip `*.jreact` files. Disabled by default. 
@@ -30,17 +109,7 @@ jade-react-brunch only supports compiling `*.jreact` files. Here's why:
 
 It's likely that you'll want to use other jade plugins to compile jade to html. If we had this plugin **and** other plugins accessing the same `.jade` files, they would trip over each other.
 
-## Usage
-Install the plugin via npm with `npm install --save jade-react-brunch`.
-
-Or, do manual install:
-
-* Add `"jade-react-brunch": "x.y.z"` to `package.json` of your brunch app.
-  Pick a plugin version that corresponds to your minor (y) brunch version.
-* If you want to use git version of plugin, add
-`"jade-react-brunch": "git+ssh://git@github.com:brunch/react-brunch.git"`.
-
-## Credit
+### Credit
 
 This is based on 
 * Paul Miller's [javascript-brunch](https://github.com/brunch/javascript-brunch)
@@ -49,7 +118,7 @@ This is based on
 
 project and adjusted to compile Jade (.jreact) files.
 
-## License
+### License
 
 The MIT License (MIT)
 

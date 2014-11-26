@@ -1,6 +1,6 @@
 {
   "name": "jade-react-brunch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Adds React.js for jade templates support to brunch.",
   "author": "Scott Coates",
   "license": "MIT",
